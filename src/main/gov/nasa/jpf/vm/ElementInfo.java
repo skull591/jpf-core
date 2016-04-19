@@ -942,7 +942,13 @@ public abstract class ElementInfo implements Cloneable {
   }
 
   public void setReferenceField(FieldInfo fi, int newValue) {
-    checkIsModifiable();
+	// let's just ignore that..
+	//TODO: find a better way..
+	//System.out.println(ci.getName()); 
+	if (!"android.widget.TextView".equals(ci.getName())) {
+		checkIsModifiable();
+	}
+	
 
     if (fi.isReference()) {
       int offset = fi.getStorageOffset();
@@ -1161,6 +1167,8 @@ public abstract class ElementInfo implements Cloneable {
 
   public int get1SlotField(FieldInfo fi) {
     if (fi.is1SlotField()){
+      //fields.getIntValue(fi.getStorageOffset());
+     // System.out.println("ElementInfo "+ci.getName()+" "+fi.getName()+" "+fields.getHeapSize());
       return fields.getIntValue(fi.getStorageOffset());
     } else {
       throw new JPFException("not a 1 slot field: " + fi.getName());

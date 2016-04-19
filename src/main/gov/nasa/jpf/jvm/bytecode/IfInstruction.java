@@ -73,8 +73,11 @@ public abstract class IfInstruction extends Instruction implements JVMInstructio
   @Override
   public Instruction execute (ThreadInfo ti) {
     StackFrame frame = ti.getModifiableTopFrame();
-
+    //if (frame.getTopPos()>=0)
+   // System.out.println("ifInstruction 1 "+frame.peek());
     conditionValue = popConditionValue(frame);
+  //  if (frame.getTopPos()>=0)
+ //   System.out.println("ifInstruction 2 "+frame.peek());
     if (conditionValue) {
       return getTarget();
     } else {

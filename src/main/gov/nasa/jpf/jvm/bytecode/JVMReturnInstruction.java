@@ -132,6 +132,7 @@ public abstract class JVMReturnInstruction extends ReturnInstruction implements 
   
   @Override
   public Instruction execute (ThreadInfo ti) {
+	 // System.out.println("through here? "+mi.getName());
     boolean didUnblock = false;
     
     if (!ti.isFirstStepInsn()) {
@@ -166,7 +167,7 @@ public abstract class JVMReturnInstruction extends ReturnInstruction implements 
     if (attr != null) {
       setReturnAttr(ti, attr);
     }
-
+  //  System.out.println("finished here?");
     return frame.getPC().getNext();
   }
   

@@ -48,6 +48,7 @@ public class GETFIELD extends JVMInstanceFieldInstruction implements ReadInstruc
     StackFrame frame = ti.getModifiableTopFrame();
     int objRef = frame.peek(); // don't pop yet, we might re-enter
     lastThis = objRef;
+  //  System.out.println("GETFIELD "+objRef);
 
     //--- check for obvious exceptions
     if (objRef == MJIEnv.NULL) {
@@ -56,6 +57,7 @@ public class GETFIELD extends JVMInstanceFieldInstruction implements ReadInstruc
     }
 
     ElementInfo eiFieldOwner = ti.getElementInfo(objRef);
+  //  System.out.println("GETFIELD 1 "+eiFieldOwner.getClassInfo().getName()+" "+eiFieldOwner.getFields().getHeapSize());
     FieldInfo fieldInfo = getFieldInfo();
     if (fieldInfo == null) {
       return ti.createAndThrowException("java.lang.NoSuchFieldError",
@@ -99,7 +101,7 @@ public class GETFIELD extends JVMInstanceFieldInstruction implements ReadInstruc
         frame.setLongOperandAttr(fieldAttr);
       }
     }
-
+    //System.out.println("GETFIELD "+eiFieldOwner.getClassInfo().getName()+" "+eiFieldOwner.getFields().getHeapSize());
     return getNext(ti);
   }
 

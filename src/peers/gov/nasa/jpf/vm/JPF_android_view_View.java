@@ -12,21 +12,26 @@ public class JPF_android_view_View extends NativePeer{
 	}
 	@MJI
 	public static void $init____V(MJIEnv env, int objref){
-		System.out.println("constructing view");
+		//System.out.println("constructing view");
 		
 	}
 	@MJI
 	public static void $init__Landroid_content_Context_2__V(MJIEnv env, int objRef, int contextRef){
-//		System.out.println("@View constructor 1");
+		//System.out.println("@View constructor 1");
 	}
 	@MJI
 	public static void $init__Landroid_content_Context_2Landroid_util_AttributeSet_2__V(MJIEnv env, int objRef, int contextRef, int attriRef){
-//		System.out.println("@View constructor 2");
+	//	System.out.println("@View constructor 2");
 	}
 	@MJI
 	public static void $init__Landroid_content_Context_2Landroid_util_AttributeSet_2I__V(MJIEnv env, int objRef, int contextRef, int attriRef, int defStyle){
-//		System.out.println("@View constructor 3");
-	}	
+	//	System.out.println("@View constructor 3");
+	}
+	@MJI
+	public static void $init__Landroid_content_Context_2Landroid_util_AttributeSet_2II__V(MJIEnv env, int objRef, int contextRef, int attriRef, int defStyleAttr, int defStyleRes){
+	//	System.out.println("@View constructor 4");
+	}
+	
 	@MJI
   public static int getParent____Landroid_view_ViewParent_2 (MJIEnv env, int objRef) {
     int rViewParent = MJIEnv.NULL;

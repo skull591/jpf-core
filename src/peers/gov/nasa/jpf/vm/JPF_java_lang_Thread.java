@@ -199,6 +199,7 @@ public class JPF_java_lang_Thread extends NativePeer {
       tiStarted.setState(ThreadInfo.State.RUNNING);
       
       vm.notifyThreadStarted(tiStarted);
+
     }
     
     //--- scheduling point

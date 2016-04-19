@@ -1,6 +1,7 @@
 package gov.nasa.jpf.vm;
 
 import gov.nasa.jpf.annotation.MJI;
+import android.widget.TextView;
 
 public class JPF_android_widget_TextView extends NativePeer{
 	@MJI
@@ -374,6 +375,8 @@ public class JPF_android_widget_TextView extends NativePeer{
   }
   @MJI
   public static void setText__Ljava_lang_CharSequence_2__V (MJIEnv env, int objRef, int rCharSequence0) {
+	  //env.getHeap().get(objRef).getFieldInfo("mText").
+	  //System.out.println(env.getHeap().get(objRef));
 	  env.getHeap().get(objRef).setReferenceField("mText", rCharSequence0);
   }
   @MJI

@@ -5,11 +5,11 @@ import gov.nasa.jpf.annotation.MJI;
 public class JPF_android_os_Handler extends NativePeer{
 	@MJI
 	public static void $init____V(MJIEnv env, int objref){
-		System.out.println("not using?");
+		//System.out.println("not using?");
 	}
 	@MJI	
 	public static void $init__Landroid_os_Looper_2__V(MJIEnv env, int objRef, int looperRef){
-		System.out.println("not using?");
+		//System.out.println("not using?");
 	}
 	@MJI	
   public static int toString____Ljava_lang_String_2 (MJIEnv env, int objRef) {

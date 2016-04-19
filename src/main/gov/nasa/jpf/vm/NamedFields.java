@@ -53,7 +53,9 @@ public class NamedFields extends Fields {
   // our low level getters and setters
   @Override
   public int getIntValue (int index) {
+	//System.out.println("NameFileds "+" "+index+" "+values.length);
     return values[index];
+    
   }
 
   public boolean isEqual(Fields o, int off, int len, int otherOff) {

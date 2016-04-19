@@ -8,5 +8,6 @@
 	<classpathentry kind="src" output="build/tests" path="src/tests"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="lib" path="/GreenDroid for Android L"/>
+	<classpathentry kind="lib" path="F:/greeendroid/classes5.0.jar"/>
 	<classpathentry kind="output" path="build"/>
 </classpath>

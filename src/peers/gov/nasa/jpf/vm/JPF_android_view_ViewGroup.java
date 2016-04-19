@@ -23,7 +23,7 @@ public class JPF_android_view_ViewGroup extends NativePeer{
   public static void initViewGroup____V (MJIEnv env, int objRef) {
   }
 	  @MJI
-  public static void initFromAttributes__Landroid_content_Context_2Landroid_util_AttributeSet_2__V (MJIEnv env, int objRef, int rContext0, int rAttributeSet1) {
+  public static void initFromAttributes__Landroid_content_Context_2Landroid_util_AttributeSet_2II__V (MJIEnv env, int objRef, int rContext0, int rAttributeSet1, int defStyleAttr, int defStyleRes) {
   }
 	  @MJI
   public static int getDescendantFocusability____I (MJIEnv env, int objRef) {

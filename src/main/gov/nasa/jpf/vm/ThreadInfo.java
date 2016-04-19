@@ -604,7 +604,7 @@ public class ThreadInfo extends InfoObject
         vm.notifyThreadNotified(this);
         break;
       }
-
+      
       if (log.isLoggable(Level.FINE)){
         log.fine("setStatus of " + getName() + " from "
                  + oldStatus.name() + " to " + newStatus.name());

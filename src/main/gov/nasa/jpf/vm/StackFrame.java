@@ -112,10 +112,11 @@ public abstract class StackFrame implements Cloneable {
 
     stackBase = nLocals;
     top = nLocals-1;
-    //System.out.println(top);
+    //////System.out.println(top);
 
     int nSlots = nLocals + nOperands;
     if (nSlots > 0){
+    	////System.out.println("Stack Frame "+mi.getName()+" "+nSlots+" "+nLocals+" "+nOperands+" Original top: "+top);
       slots = new int[nLocals + nOperands];
       isRef = createReferenceMap(slots.length);
     } else {
@@ -145,6 +146,7 @@ public abstract class StackFrame implements Cloneable {
   protected StackFrame (int nLocals, int nOperands){
     stackBase = nLocals;
     slots = new int[nLocals + nOperands];
+    ////System.out.println("Stack Frame "+mi.getName()+" "+slots+" "+nLocals+" "+nOperands+" Original top: "+top);
     isRef = createReferenceMap(slots.length);
     top = nLocals-1;  // index, not size!
   }
@@ -1830,7 +1832,7 @@ public abstract class StackFrame implements Cloneable {
   }
 
   public void printStackTrace () {
-    System.out.println( getStackTraceInfo());
+    //System.out.println( getStackTraceInfo());
   }
 
   public void swap () {
@@ -1990,6 +1992,7 @@ public abstract class StackFrame implements Cloneable {
     }
 
     top = i;
+    //System.out.println("StackFrame popDouble "+mi.getName()+" "+top+" "+slots.length);
     return Types.intsToDouble(lo, hi);
   }
 
@@ -2006,6 +2009,7 @@ public abstract class StackFrame implements Cloneable {
     }
 
     top = i;
+    //System.out.println("StackFrame popLong "+mi.getName()+" "+top+" "+slots.length);
     return Types.intsToLong(lo, hi);
   }
 
@@ -2019,7 +2023,7 @@ public abstract class StackFrame implements Cloneable {
 
   public void removeArguments (MethodInfo mi) {
     int i = mi.getArgumentsSize();
-
+    //System.out.println("StackFrame "+mi.getArgumentsSize());
     if (i != 0) {
       pop(i);
     }
@@ -2045,6 +2049,7 @@ public abstract class StackFrame implements Cloneable {
     }
 
     top = t;
+    ////System.out.println("StackFrame pop "+n+" "+mi.getName()+" "+top+" "+slots.length);
   }
 
   public float popFloat() {    
@@ -2055,7 +2060,7 @@ public abstract class StackFrame implements Cloneable {
     }
 
     top--;
-
+    ////System.out.println("StackFrame popFloat "+mi.getName()+" "+top+" "+slots.length);
     return Float.intBitsToFloat(v);
   }
   
@@ -2076,7 +2081,7 @@ public abstract class StackFrame implements Cloneable {
     }
 
     top--;
-
+    ////System.out.println("StackFrame pop "+mi.getName()+" "+top+" "+slots.length);
     // note that we don't reset the operands or oRefs values, so that
     // we can still access them after the insn doing the pop got executed
     // (e.g. useful for listeners)
@@ -2087,6 +2092,7 @@ public abstract class StackFrame implements Cloneable {
   public void pushLocal (int index) {
     top++;
     slots[top] = slots[index];
+    ////System.out.println("StackFrame pushlocal "+mi.getName()+" "+top+" "+slots.length);
     isRef.set(top, isRef.get(index));
 
     if (attrs != null){
@@ -2101,7 +2107,7 @@ public abstract class StackFrame implements Cloneable {
     isRef.clear(t);
     slots[++t] = slots[index+1];
     isRef.clear(t);
-
+    ////System.out.println("StackFrame pushLonglocal "+mi.getName()+" "+top+" "+slots.length);
     if (attrs != null){
       attrs[t-1] = attrs[index];
       attrs[t] = null;
@@ -2147,7 +2153,7 @@ public abstract class StackFrame implements Cloneable {
     top++;
     slots[top] = v;
     isRef.clear(top);
-
+    ////System.out.println("StackFrame push "+mi.getName()+" "+top+" "+slots.length);
     //if (attrs != null){ // done on pop
     //  attrs[top] = null;
     //}
@@ -2155,6 +2161,7 @@ public abstract class StackFrame implements Cloneable {
 
   public void pushRef (int ref){
     top++;
+    ////System.out.println("StackFrame pushRef "+mi.getName()+" "+top+" "+slots.length);
     slots[top] = ref;
     isRef.set(top);
 
@@ -2168,6 +2175,7 @@ public abstract class StackFrame implements Cloneable {
 
   public void push (int v, boolean ref) {
     top++;
+    ////System.out.println("StackFrame pushcommon "+mi.getName()+" "+top+" "+slots.length);
     slots[top] = v;
     isRef.set(top, ref);
 

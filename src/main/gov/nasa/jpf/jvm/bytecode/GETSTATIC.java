@@ -98,7 +98,7 @@ public class GETSTATIC extends JVMStaticFieldInstruction  implements ReadInstruc
         frame.setLongOperandAttr(fieldAttr);
       }
     }
-        
+   // System.out.println("GETSTATIC "+eiFieldOwner.getFields().getHeapSize());
     return getNext(ti);
   }
   
